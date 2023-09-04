@@ -105,7 +105,7 @@ const injectScriptInHtmlFiles = async () => {
     // Injects a script into the <head> of all HTML files that defines the
     // __GATSBY_IPFS_PATH_PREFIX__ variable
     // const scriptBuffer = await readFileAsync(path.resolve(__dirname, 'runtime/head-script.js'));
-    const scriptContents = `"use strict";!function(){var i=window.location.pathname.replace(/\/$/, '');window.__GATSBY_IPFS_PATH_PREFIX__=i}();`; //scriptBuffer.toString();
+    const scriptContents = '"use strict";!function(){var i=window.location.pathname.replace(/\\/$/,"");window.__GATSBY_IPFS_PATH_PREFIX__=i}();';
 
     const paths = await globby(['public/**/*.html']);
 
